@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Purrfect Persians</title>
+  <title>Purrfect Persians | Luxury Dollface Persian Kittens</title>
 
   <style>
     * {
@@ -24,7 +24,7 @@
       top: 0;
       z-index: 100;
       backdrop-filter: blur(20px);
-      background: rgba(255,255,255,0.8);
+      background: rgba(255,255,255,0.82);
       border-bottom: 1px solid rgba(0,0,0,0.06);
       padding: 18px 8%;
       display: flex;
@@ -34,7 +34,7 @@
 
     nav h1 {
       font-size: 1.2rem;
-      font-weight: 700;
+      font-weight: 800;
       letter-spacing: -0.03em;
     }
 
@@ -43,6 +43,7 @@
       color: #1f1f1f;
       margin-left: 24px;
       font-size: 0.95rem;
+      font-weight: 500;
     }
 
     .hero {
@@ -68,7 +69,7 @@
       font-size: 1.15rem;
       color: #555;
       margin-bottom: 32px;
-      max-width: 550px;
+      max-width: 560px;
     }
 
     .button {
@@ -78,7 +79,7 @@
       background: #1f1f1f;
       color: white;
       text-decoration: none;
-      font-weight: 600;
+      font-weight: 700;
     }
 
     .hero-image {
@@ -93,6 +94,7 @@
       height: 650px;
       object-fit: cover;
       border-radius: 28px;
+      cursor: pointer;
     }
 
     section {
@@ -112,14 +114,14 @@
 
     .section-title p {
       color: #666;
-      max-width: 700px;
+      max-width: 720px;
       margin: auto;
     }
 
     .kitten-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 28px;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 30px;
     }
 
     .card {
@@ -129,14 +131,40 @@
       box-shadow: 0 15px 45px rgba(0,0,0,0.06);
     }
 
-    .card img {
+    .gallery {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 8px;
+      padding: 12px;
+      background: white;
+    }
+
+    .gallery img {
       width: 100%;
-      height: 380px;
+      height: 240px;
       object-fit: cover;
+      border-radius: 22px;
+      cursor: pointer;
+      transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+
+    .gallery img:first-child {
+      height: 496px;
+    }
+
+    .gallery-side {
+      display: grid;
+      gap: 8px;
+    }
+
+    .gallery img:hover,
+    .hero-image img:hover {
+      transform: scale(1.015);
+      opacity: 0.94;
     }
 
     .card-content {
-      padding: 26px;
+      padding: 28px;
     }
 
     .tag {
@@ -145,16 +173,17 @@
       color: #7d564d;
       padding: 7px 13px;
       border-radius: 999px;
-      font-size: 0.8rem;
-      font-weight: 700;
+      font-size: 0.78rem;
+      font-weight: 800;
       margin-bottom: 18px;
       text-transform: uppercase;
+      letter-spacing: 0.02em;
     }
 
     .card h4 {
-      font-size: 1.7rem;
+      font-size: 1.8rem;
       margin-bottom: 14px;
-      letter-spacing: -0.03em;
+      letter-spacing: -0.035em;
     }
 
     .card p {
@@ -164,7 +193,7 @@
 
     .highlight {
       color: #1f1f1f;
-      font-weight: 600;
+      font-weight: 700;
     }
 
     .about {
@@ -176,13 +205,13 @@
 
     .about-box {
       background: white;
-      padding: 40px;
+      padding: 42px;
       border-radius: 36px;
       box-shadow: 0 15px 45px rgba(0,0,0,0.05);
     }
 
     .about-box h3 {
-      font-size: 2.5rem;
+      font-size: 2.6rem;
       line-height: 1;
       margin-bottom: 20px;
       letter-spacing: -0.05em;
@@ -191,6 +220,36 @@
     .about-box p {
       color: #555;
       margin-bottom: 14px;
+    }
+
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      margin-top: 35px;
+    }
+
+    .process-card {
+      background: white;
+      border-radius: 28px;
+      padding: 28px;
+      box-shadow: 0 15px 45px rgba(0,0,0,0.05);
+    }
+
+    .process-card span {
+      color: #b08b7d;
+      font-weight: 900;
+      display: block;
+      margin-bottom: 16px;
+    }
+
+    .process-card h4 {
+      font-size: 1.2rem;
+      margin-bottom: 8px;
+    }
+
+    .process-card p {
+      color: #666;
     }
 
     .contact {
@@ -234,6 +293,47 @@
       font-size: 0.9rem;
     }
 
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 9999;
+      padding: 35px;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background: rgba(0,0,0,0.92);
+    }
+
+    .modal img {
+      display: block;
+      margin: auto;
+      max-width: 94%;
+      max-height: 88vh;
+      border-radius: 26px;
+      box-shadow: 0 25px 90px rgba(0,0,0,0.35);
+    }
+
+    .close {
+      position: fixed;
+      top: 22px;
+      right: 36px;
+      color: white;
+      font-size: 44px;
+      font-weight: 700;
+      cursor: pointer;
+      z-index: 10000;
+    }
+
+    .modal-caption {
+      color: white;
+      text-align: center;
+      margin-top: 18px;
+      font-size: 1rem;
+      opacity: 0.8;
+    }
+
     @media(max-width: 900px) {
       .hero,
       .about {
@@ -243,6 +343,35 @@
       .hero-image img {
         height: 450px;
       }
+
+      .gallery {
+        grid-template-columns: 1fr;
+      }
+
+      .gallery img,
+      .gallery img:first-child {
+        height: 330px;
+      }
+    }
+
+    @media(max-width: 600px) {
+      nav {
+        padding: 16px 5%;
+      }
+
+      nav div {
+        display: none;
+      }
+
+      section,
+      .hero {
+        padding-left: 5%;
+        padding-right: 5%;
+      }
+
+      .contact {
+        padding: 40px 24px;
+      }
     }
   </style>
 </head>
@@ -251,162 +380,181 @@
 
   <nav>
     <h1>Purrfect Persians</h1>
-
     <div>
       <a href="#available">Kittens</a>
       <a href="#about">About</a>
+      <a href="#process">Process</a>
       <a href="#contact">Contact</a>
     </div>
   </nav>
 
   <section class="hero">
-
     <div>
       <h2>Luxury Dollface Persian Kittens.</h2>
-
       <p>
         Beautiful family-raised Persian kittens with sweet temperaments,
         bright eyes, fluffy coats, and a premium adoption experience.
       </p>
-
-      <a href="#available" class="button">
-        View Available Kittens
-      </a>
+      <a href="#available" class="button">View Available Kittens</a>
     </div>
 
     <div class="hero-image">
-      <img src="./green-1.jpeg" alt="Green Persian kitten"/>
+      <img src="./green-1.jpeg" alt="Green male Persian kitten" onclick="openModal(this)">
     </div>
-
   </section>
 
   <section id="available">
-
     <div class="section-title">
       <h3>Available Kittens</h3>
-
       <p>
-        Premium dollface Persian kittens raised in a clean, loving home environment.
+        Click any kitten photo to view it larger. Each kitten card can include multiple photos.
       </p>
     </div>
 
     <div class="kitten-grid">
 
       <div class="card">
-        <img src="./green-1.jpeg" alt="Green male Persian kitten"/>
+        <div class="gallery">
+          <img src="./green-1.jpeg" alt="Green male Persian kitten" onclick="openModal(this)">
+
+          <div class="gallery-side">
+            <img src="./green-2.jpeg" alt="Green male Persian kitten second photo" onclick="openModal(this)">
+            <img src="./green-1.jpeg" alt="Green male Persian kitten detail photo" onclick="openModal(this)">
+          </div>
+        </div>
 
         <div class="card-content">
-
           <span class="tag">Available</span>
-
           <h4>Green</h4>
-
           <p><strong>Gender:</strong> Male</p>
-
           <p><strong>Color:</strong> Black Golden Tabby</p>
-
           <p><strong>Eyes:</strong> Bright blue</p>
-
-          <p>
-            <span class="highlight">Temperament:</span>
-            Calm, cuddly, playful, and affectionate.
-          </p>
-
+          <p><span class="highlight">Temperament:</span> Calm, cuddly, playful, and affectionate.</p>
+          <p><strong>Breed:</strong> Dollface Persian</p>
+          <p><strong>Status:</strong> Accepting reservation inquiries.</p>
         </div>
       </div>
 
       <div class="card">
-        <img src="./green-2.jpeg" alt="Green Persian kitten second photo"/>
+        <div class="gallery">
+          <img src="./green-2.jpeg" alt="Another available kitten main photo" onclick="openModal(this)">
+
+          <div class="gallery-side">
+            <img src="./green-1.jpeg" alt="Another available kitten second photo" onclick="openModal(this)">
+            <img src="./green-2.jpeg" alt="Another available kitten third photo" onclick="openModal(this)">
+          </div>
+        </div>
 
         <div class="card-content">
-
-          <span class="tag">Feature Photo</span>
-
-          <h4>Green</h4>
-
-          <p><strong>Breed:</strong> Dollface Persian</p>
-
-          <p><strong>Coat:</strong> Fluffy black golden tabby</p>
-
-          <p>
-            <span class="highlight">Personality:</span>
-            Gentle, social, curious, and people-focused.
-          </p>
-
+          <span class="tag">Template Card</span>
+          <h4>Next Kitten</h4>
+          <p><strong>Gender:</strong> Male/Female</p>
+          <p><strong>Color:</strong> Add color here</p>
+          <p><strong>Eyes:</strong> Add eye color here</p>
+          <p><span class="highlight">Temperament:</span> Add personality here.</p>
+          <p><strong>Status:</strong> Update availability here.</p>
         </div>
       </div>
 
     </div>
-
   </section>
 
   <section id="about">
-
     <div class="about">
-
       <div class="about-box">
-
         <h3>Raised with intention.</h3>
-
-        <p>
-          Our kittens are raised in a clean family environment and handled daily.
-        </p>
-
-        <p>
-          We prioritize temperament, cleanliness, socialization, and healthy development.
-        </p>
-
-        <p>
-          Every kitten receives individual attention before going to their new home.
-        </p>
-
+        <p>Our kittens are raised in a clean family environment and handled daily.</p>
+        <p>We prioritize temperament, cleanliness, socialization, and healthy development.</p>
+        <p>Every kitten receives individual attention before going to their new home.</p>
       </div>
 
       <div class="hero-image">
-        <img src="./green-2.jpeg" alt="Green Persian kitten"/>
+        <img src="./green-2.jpeg" alt="Green Persian kitten" onclick="openModal(this)">
       </div>
+    </div>
+  </section>
 
+  <section id="process">
+    <div class="section-title">
+      <h3>Simple Adoption Process</h3>
+      <p>Clear, professional, and designed to protect serious families and responsible sellers.</p>
     </div>
 
+    <div class="process-grid">
+      <div class="process-card">
+        <span>01</span>
+        <h4>Inquire</h4>
+        <p>Send which kitten you are interested in and your location.</p>
+      </div>
+
+      <div class="process-card">
+        <span>02</span>
+        <h4>Verify</h4>
+        <p>Request current photos, videos, or FaceTime before placing a deposit.</p>
+      </div>
+
+      <div class="process-card">
+        <span>03</span>
+        <h4>Reserve</h4>
+        <p>A deposit may hold your kitten once terms are confirmed in writing.</p>
+      </div>
+
+      <div class="process-card">
+        <span>04</span>
+        <h4>Pickup</h4>
+        <p>Final payment and pickup details are confirmed before pickup day.</p>
+      </div>
+    </div>
   </section>
 
   <section id="contact">
-
     <div class="contact">
-
       <h3>Ready to meet Green?</h3>
-
       <p>
         Message us for pricing, updated videos, pickup details, and reservation information.
       </p>
 
       <div class="pill-container">
-
-        <div class="pill">
-          Utah
-        </div>
-
-        <div class="pill">
-          FaceTime Available
-        </div>
-
-        <div class="pill">
-          Indoor Raised
-        </div>
-
+        <div class="pill">Utah</div>
+        <div class="pill">FaceTime Available</div>
+        <div class="pill">Indoor Raised</div>
       </div>
 
-      <a href="mailto:your-email@example.com" class="button">
-        Contact Us
-      </a>
-
+      <a href="mailto:your-email@example.com" class="button">Contact Us</a>
     </div>
-
   </section>
 
   <footer>
     © 2026 Purrfect Persians • Luxury Dollface Persian Kittens
   </footer>
+
+  <div id="imageModal" class="modal" onclick="closeModal()">
+    <span class="close">&times;</span>
+    <img id="modalImage" src="" alt="Expanded kitten photo">
+    <div id="modalCaption" class="modal-caption"></div>
+  </div>
+
+  <script>
+    function openModal(img) {
+      const modal = document.getElementById("imageModal");
+      const modalImg = document.getElementById("modalImage");
+      const caption = document.getElementById("modalCaption");
+
+      modal.style.display = "block";
+      modalImg.src = img.src;
+      caption.innerText = img.alt;
+    }
+
+    function closeModal() {
+      document.getElementById("imageModal").style.display = "none";
+    }
+
+    document.addEventListener("keydown", function(event) {
+      if (event.key === "Escape") {
+        closeModal();
+      }
+    });
+  </script>
 
 </body>
 </html>
